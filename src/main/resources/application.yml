@@ -1,0 +1,57 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/richest?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  thymeleaf:
+    cache: true
+  devtools:
+    restart:
+      enabled: true
+
+server :
+  port : 8081
+  servlet:
+    context-path: /richest-demo
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+
+
+mapper:
+  #公用接口类路径
+  mappers: com.example.richest.entity
+  identity: MYSQL
+
+
+
+  shiro-redis:
+    enabled: true
+    redis-manager:
+      host: 127.0.0.1:6379
+  markerhub:
+    jwt:
+      # 加密秘钥
+      secret: richest
+      # token有效时长，7天，单位秒
+      expire: 604800
+      header: token
+
+
+logging:
+  level:
+    com.example.richest.mapper : debug
+  file:
+    name: richest-log
+    path: F:/richest_log/richest-log.log
+
+
+
+
+
+
+
+
+
